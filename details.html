@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Nami Ngiya Spina</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #ff3e6c;
+            --secondary: #ff7b9c;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #f5f5f5;
+            --text: #333333;
+            --accent: #00b3b3;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.6;
+            padding-top: 140px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 15px 0;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-scrolled {
+            height: 100px;
+            padding: 10px 0;
+        }
+
+        .header-scrolled .top-header {
+            height: 70px;
+        }
+
+        .header-scrolled .logo img {
+            height: 60px;
+        }
+
+        .header-scrolled .logo {
+            font-size: 28px;
+        }
+
+        .header-scrolled .nav-icon {
+            font-size: 22px;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 100px;
+            flex: 1;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            order: 1;
+            margin-right: 15px;
+            transition: var(--transition);
+        }
+
+        .menu-icon:hover {
+            color: var(--primary);
+        }
+
+        .logo-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            order: 2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            transition: var(--transition);
+        }
+
+        .logo img {
+            height: 80px;
+            margin-right: 15px;
+            transition: var(--transition);
+        }
+
+        .logo span {
+            color: var(--accent);
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            order: 4;
+        }
+
+        .nav-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 28px;
+            padding: 10px;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .nav-icon:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .cart-count, .wishlist-count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(to right, var(--dark), #2a2a2a);
+            padding: 10px 0;
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            gap: 10px 30px;
+            padding: 0 20px;
+            transition: all 0.3s;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links li {
+            flex: 0 0 auto;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            display: inline-block;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            padding: 15px 0;
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumbs a {
+            color: var(--text);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--primary);
+        }
+
+        .breadcrumbs span {
+            margin: 0 10px;
+        }
+
+        /* Product Detail Section */
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .product-gallery {
+            position: relative;
+        }
+
+        .main-image {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .main-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .thumbnail:hover, .thumbnail.active {
+            opacity: 1;
+            border-color: var(--primary);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px 0;
+        }
+
+        .product-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .price-current {
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .price-original {
+            font-size: 18px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .product-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .product-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .rating i {
+            color: #FFD700;
+        }
+
+        .availability {
+            color: #00a650;
+            font-weight: 500;
+        }
+
+        .product-options {
+            margin-bottom: 30px;
+        }
+
+        .option-group {
+            margin-bottom: 20px;
+        }
+
+        .option-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .size-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .size-option {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .size-option:hover {
+            border-color: var(--primary);
+        }
+
+        .size-option.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .color-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        .color-option.selected {
+            border-color: var(--dark);
+        }
+
+        .color-option.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            text-shadow: 0 0 2px rgba(0,0,0,0.5);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 45px;
+            background: var(--gray);
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .quantity-btn:hover {
+            background: #e5e5e5;
+        }
+
+        .quantity-input {
+            width: 50px;
+            height: 45px;
+            border: none;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .add-to-cart-btn {
+            flex: 1;
+            padding: 0 30px;
+            background: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .wishlist-btn {
+            width: 55px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gray);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 18px;
+        }
+
+        .wishlist-btn:hover {
+            background: #ffebee;
+            color: var(--primary);
+        }
+
+        .wishlist-btn.active {
+            color: var(--primary);
+            background: #ffebee;
+        }
+
+        /* Product Tabs */
+        .product-tabs {
+            margin-bottom: 60px;
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            padding: 15px 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            color: #777;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .specs-table tr {
+            border-bottom: 1px solid #eee;
+        }
+
+        .specs-table td {
+            padding: 15px 10px;
+        }
+
+        .specs-table td:first-child {
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .reviews-container {
+            max-width: 800px;
+        }
+
+        .review {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+        }
+
+        .review-date {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .review-rating {
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        /* Related Products */
+        .related-products {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s;
+        }
+
+        .product:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .quick-view {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--dark);
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            opacity: 0;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .product:hover .quick-view {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 18px;
+            transition: var(--transition);
+        }
+
+        .product-title:hover {
+            color: var(--primary);
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .price-current {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .price-original {
+            font-size: 16px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .add-to-cart {
+            flex: 1;
+            padding: 12px;
+            background: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .add-to-cart:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .wishlist-btn {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gray);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .wishlist-btn:hover {
+            background: #ffebee;
+        }
+
+        .wishlist-btn.active {
+            color: var(--primary);
+            background: #ffebee;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #999;
+            font-size: 14px;
+        }
+
+        .developer-glow {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .developer-glow:hover {
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(255, 62, 108, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 120px;
+            }
+            
+            header {
+                height: 120px;
+            }
+            
+            .top-header {
+                height: 80px;
+                padding: 0 10px;
+            }
+            
+            .logo-container {
+                position: static;
+                transform: none;
+                order: 1;
+                margin-bottom: 0;
+                flex: 1;
+                display: flex;
+                justify-content: center;
+            }
+            
+            .menu-icon {
+                order: 0;
+                margin-right: 0;
+                align-self: center;
+                font-size: 20px;
+            }
+            
+            .nav-icons {
+                order: 2;
+                margin-left: auto;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 0 10px;
+            }
+            
+            .nav-links li {
+                flex: 1 0 30%;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                font-size: 12px;
+            }
+            
+            .logo {
+                font-size: 28px;
+            }
+            
+            .logo img {
+                height: 60px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .wishlist-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                padding-top: 100px;
+            }
+            
+            header {
+                height: 100px;
+                padding: 10px 0;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .header-scrolled {
+                height: 80px;
+            }
+            
+            .top-header {
+                height: 70px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+            
+            .logo img {
+                height: 50px;
+                margin-right: 10px;
+            }
+            
+            .nav-links li {
+                flex: 1 0 45%;
+            }
+            
+            .nav-icon {
+                font-size: 18px;
+                padding: 5px;
+            }
+            
+            .cart-count, .wishlist-count {
+                width: 18px;
+                height: 18px;
+                font-size: 10px;
+            }
+            
+            .tabs-header {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                border-bottom: 1px solid #eee;
+            }
+            
+            .tab-btn.active::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container">
+            <div class="top-header">
+                <div class="menu-icon" onclick="toggleMenu()" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="LOG.jpeg" alt="Nami Ngiya Spina Fashion">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="nav-icons">
+                    <div class="nav-icon" aria-label="User account">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="nav-icon wishlist-icon" onclick="toggleWishlist()" aria-label="Wishlist">
+                        <i class="fas fa-heart"></i>
+                        <span class="wishlist-count">0</span>
+                    </div>
+                    <div class="nav-icon" onclick="toggleSearch()" aria-label="Search products">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="nav-icon cart-icon" onclick="toggleCart()" aria-label="Shopping cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#" class="active">New Arrivals</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Product Detail Section -->
+    <section class="container">
+        <div class="breadcrumbs">
+            <a href="#">Home</a>
+            <span>/</span>
+            <a href="#">New Arrivals</a>
+            <span>/</span>
+            <a href="#">Women</a>
+            <span>/</span>
+            <span>Casual Linen Shirt</span>
+        </div>
+
+        <div class="product-detail">
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Casual Linen Shirt" id="main-product-image">
+                </div>
+                <div class="thumbnail-container">
+                    <div class="thumbnail active" data-image="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Casual Linen Shirt Front">
+                    </div>
+                    <div class="thumbnail" data-image="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Casual Linen Shirt Side">
+                    </div>
+                    <div class="thumbnail" data-image="https://images.unsplash.com/photo-1503341338985-b047bb81f47f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1503341338985-b047bb81f47f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Casual Linen Shirt Back">
+                    </div>
+                    <div class="thumbnail" data-image="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Casual Linen Shirt Detail">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1 class="product-title">Casual Linen Shirt</h1>
+                <div class="product-price">
+                    <span class="price-current">R450</span>
+                    <span class="price-original">R600</span>
+                    <span class="discount">25% OFF</span>
+                </div>
+                
+                <div class="product-meta">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(42 reviews)</span>
+                    </div>
+                    <div class="availability">
+                        <i class="fas fa-check-circle"></i> In Stock
+                    </div>
+                </div>
+
+                <p class="product-description">
+                    This stylish linen shirt is perfect for casual outings and warm weather. Made from 100% high-quality linen, it offers exceptional comfort and breathability. Features a classic collar, button-front closure, and relaxed fit that flatters all body types.
+                </p>
+
+                <div class="product-options">
+                    <div class="option-group">
+                        <span class="option-title">Size:</span>
+                        <div class="size-options">
+                            <div class="size-option">XS</div>
+                            <div class="size-option">S</div>
+                            <div class="size-option selected">M</div>
+                            <div class="size-option">L</div>
+                            <div class="size-option">XL</div>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <span class="option-title">Color:</span>
+                        <div class="color-options">
+                            <div class="color-option selected" style="background-color: #7c5f4d;" data-color="Taupe"></div>
+                            <div class="color-option" style="background-color: #4a6b9c;" data-color="Navy Blue"></div>
+                            <div class="color-option" style="background-color: #c4533d;" data-color="Terracotta"></div>
+                            <div class="color-option" style="background-color: #f1e5d1;" data-color="Cream"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-actions">
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decrease-qty">-</button>
+                        <input type="text" class="quantity-input" value="1" id="quantity">
+                        <button class="quantity-btn" id="increase-qty">+</button>
+                    </div>
+                    <button class="add-to-cart-btn">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <button class="wishlist-btn">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Tabs -->
+        <div class="product-tabs">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="description">Description</button>
+                <button class="tab-btn" data-tab="specifications">Specifications</button>
+                <button class="tab-btn" data-tab="reviews">Reviews (42)</button>
+            </div>
+
+            <div class="tab-content active" id="description">
+                <p>Our Casual Linen Shirt is crafted from premium quality linen fabric that gets softer with every wash. Perfect for warm weather, this shirt features a relaxed fit that doesn't sacrifice style for comfort.</p>
+                <br>
+                <p><strong>Features:</strong></p>
+                <ul>
+                    <li>100% premium linen fabric</li>
+                    <li>Button-front closure</li>
+                    <li>Classic collar</li>
+                    <li>Relaxed fit</li>
+                    <li>Machine washable</li>
+                    <li>Available in multiple colors</li>
+                </ul>
+                <br>
+                <p><strong>Care Instructions:</strong></p>
+                <p>Machine wash cold with like colors. Tumble dry low. Iron on medium heat if needed.</p>
+            </div>
+
+            <div class="tab-content" id="specifications">
+                <table class="specs-table">
+                    <tr>
+                        <td>Material</td>
+                        <td>100% Linen</td>
+                    </tr>
+                    <tr>
+                        <td>Fit</td>
+                        <td>Relaxed</td>
+                    </tr>
+                    <tr>
+                        <td>Closure</td>
+                        <td>Button Front</td>
+                    </tr>
+                    <tr>
+                        <td>Collor</td>
+                        <td>Classic Collar</td>
+                    </tr>
+                    <tr>
+                        <td>Sleeve</td>
+                        <td>Long Sleeve</td>
+                    </tr>
+                    <tr>
+                        <td>Length</td>
+                        <td>Regular</td>
+                    </tr>
+                    <tr>
+                        <td>Care</td>
+                        <td>Machine Washable</td>
+                    </tr>
+                    <tr>
+                        <td>Origin</td>
+                        <td>Imported</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tab-content" id="reviews">
+                <div class="reviews-container">
+                    <div class="review">
+                        <div class="review-header">
+                            <span class="reviewer-name">Sarah M.</span>
+                            <span class="review-date">October 15, 2023</span>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>I absolutely love this shirt! The fabric is so breathable and comfortable. Perfect for summer days. I got the taupe color and it goes with everything.</p>
+                    </div>
+
+                    <div class="review">
+                        <div class="review-header">
+                            <span class="reviewer-name">James K.</span>
+                            <span class="review-date">September 28, 2023</span>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>Great quality and fit true to size. The linen material is high quality and doesn't wrinkle as much as I expected. Will definitely buy in other colors.</p>
+                    </div>
+
+                    <div class="review">
+                        <div class="review-header">
+                            <span class="reviewer-name">Lindiwe B.</span>
+                            <span class="review-date">September 10, 2023</span>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p>Very comfortable shirt, but it does wrinkle easily. The cream color is beautiful and the fit is perfect. I would recommend sizing up if you prefer a looser fit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Like This Section -->
+    <section class="container related-products">
+        <h2 class="section-title">More Like This</h2>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product">
+                <span class="product-badge">New</span>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Relaxed Linen Shirt">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Relaxed Linen Shirt</h3>
+                    <div class="product-price">
+                        <span class="price-current">R480</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product">
+                <span class="product-badge">Popular</span>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1503341338985-b047bb81f47f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Linen Blend Top">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Linen Blend Top</h3>
+                    <div class="product-price">
+                        <span class="price-current">R420</span>
+                        <span class="price-original">R550</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Classic Linen Shirt">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Classic Linen Shirt</h3>
+                    <div class="product-price">
+                        <span class="price-current">R490</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product">
+                <span class="product-badge">Sale</span>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Linen Casual Dress">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Linen Casual Dress</h3>
+                    <div class="product-price">
+                        <span class="price-current">R680</span>
+                        <span class="price-original">R850</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Viewed Section -->
+    <section class="container related-products">
+        <h2 class="section-title">Recently Viewed</h2>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1583744946564-b52ae1c3c0b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Slim Fit Trousers">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Slim Fit Trousers</h3>
+                    <div class="product-price">
+                        <span class="price-current">R600</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product">
+                <span class="product-badge">New</span>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Classic Blazer">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Classic Blazer</h3>
+                    <div class="product-price">
+                        <span class="price-current">R950</span>
+                        <span class="price-original">R1200</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Leather Crossbody Bag">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Leather Crossbody Bag</h3>
+                    <div class="product-price">
+                        <span class="price-current">R780</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product">
+                <span class="product-badge">Limited</span>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Designer Sunglasses">
+                    <div class="quick-view">Quick View</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Designer Sunglasses</h3>
+                    <div class="product-price">
+                        <span class="price-current">R650</span>
+                        <span class="price-original">R850</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>NAMI NGIYA SPINA</h3>
+                    <p>Premium fashion for everyone. Quality clothing that makes you stand out.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/nami_ngiya_spina?igsh=bjhiNzlwemVqMjBj" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/16ZvKibCao/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Women's Collection</a></li>
+                        <li><a href="#">Men's Collection</a></li>
+                        <li><a href="#">Kids' Collection</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Johannesburg</li>
+                        <li><i class="fas fa-phone"></i> +27 76 833 3094</li>
+                        <li><i class="fas fa-envelope"></i> info@namispina.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 NAMI NGIYA SPINA. All rights reserved.</p>
+                <p>Designed by <a href="https://wa.me/27768333094" target="_blank" class="developer-glow">BarkerTech Innovations</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product Detail Page Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Thumbnail click functionality
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.getElementById('main-product-image');
+            
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // Remove active class from all thumbnails
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+                    
+                    // Change main image
+                    const newImageSrc = this.getAttribute('data-image');
+                    mainImage.src = newImageSrc;
+                });
+            });
+            
+            // Size selection
+            const sizeOptions = document.querySelectorAll('.size-option');
+            
+            sizeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all sizes
+                    sizeOptions.forEach(o => o.classList.remove('selected'));
+                    
+                    // Add selected class to clicked size
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Color selection
+            const colorOptions = document.querySelectorAll('.color-option');
+            
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all colors
+                    colorOptions.forEach(o => o.classList.remove('selected'));
+                    
+                    // Add selected class to clicked color
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Quantity selector
+            const quantityInput = document.getElementById('quantity');
+            const decreaseBtn = document.getElementById('decrease-qty');
+            const increaseBtn = document.getElementById('increase-qty');
+            
+            decreaseBtn.addEventListener('click', function() {
+                let currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                }
+            });
+            
+            increaseBtn.addEventListener('click', function() {
+                let currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+            });
+            
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Add to cart functionality
+            const addToCartBtn = document.querySelector('.add-to-cart-btn');
+            const cartCount = document.querySelector('.cart-count');
+            
+            addToCartBtn.addEventListener('click', function() {
+                let currentCount = parseInt(cartCount.textContent);
+                const quantity = parseInt(quantityInput.value);
+                
+                // Update cart count
+                cartCount.textContent = currentCount + quantity;
+                
+                // Show confirmation (in a real site, this would be a more elegant notification)
+                alert('Product added to cart!');
+            });
+            
+            // Wishlist functionality
+            const wishlistBtn = document.querySelector('.wishlist-btn');
+            const wishlistCount = document.querySelector('.wishlist-count');
+            
+            wishlistBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                
+                let currentCount = parseInt(wishlistCount.textContent);
+                
+                if (this.classList.contains('active')) {
+                    wishlistCount.textContent = currentCount + 1;
+                    alert('Added to wishlist!');
+                } else {
+                    wishlistCount.textContent = currentCount - 1;
+                    alert('Removed from wishlist!');
+                }
+            });
+            
+            // Quick view buttons
+            const quickViewButtons = document.querySelectorAll('.quick-view');
+            
+            quickViewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // In a real implementation, this would open a product quick view modal
+                    const productName = this.closest('.product').querySelector('.product-title').textContent;
+                    alert('Quick view for: ' + productName);
+                });
+            });
+        });
+        
+        // Mobile menu toggle (from original code)
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
